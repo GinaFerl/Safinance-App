@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="cream">#FFECE8DD</color>
+    <color name="teal_blue">#FF2C74B3</color>
+    <color name="navy">#FF205295</color>
+    <color name="coffee_ku">#FF848484</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
