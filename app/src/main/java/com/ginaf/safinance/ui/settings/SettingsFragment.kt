@@ -4,39 +4,37 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.ginaf.safinance.databinding.FragmentSettingsBinding
+import com.ginaf.safinance.R
+import com.google.android.material.appbar.MaterialToolbar
 
 class SettingsFragment : Fragment() {
-
-    private var _binding: FragmentSettingsBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        val notificationsViewModel =
-            ViewModelProvider(this)[SettingsViewModel::class.java]
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_settings, container, false)
 
-        _binding = FragmentSettingsBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        val textView: TextView = binding.textNotifications
-        notificationsViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        if (savedInstanceState == null) {
+            childFragmentManager.beginTransaction()
+                .replace(R.id.settings_container, SettingsPreferenceFragment())
+                .commit()
         }
-        return root
+
+        return view
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val toolbar = view.findViewById<MaterialToolbar>(R.id.customToolbar)
+        toolbar.findViewById<LinearLayout>(R.id.homeToolbarContent).visibility = View.GONE
+        toolbar.findViewById<LinearLayout>(R.id.otherToolbarContent).visibility = View.VISIBLE
+        toolbar.findViewById<TextView>(R.id.tvTitle).text = getString(R.string.title_settings)
+
     }
 }

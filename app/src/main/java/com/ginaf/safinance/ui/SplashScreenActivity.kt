@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
-import com.ginaf.safinance.MainActivity
+import com.ginaf.safinance.ui.MainActivity
 import com.ginaf.safinance.R
 
 class SplashScreenActivity : AppCompatActivity() {

@@ -11,6 +11,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Safinance">
         <activity
+            android:name=".ui.profile.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.transaction.IncomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.transaction.ExpenseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.transaction.AddTransactionActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.login.LoginActivity"
             android:exported="false" />
         <activity
@@ -24,8 +36,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:exported="false"></activity>
+            android:name=".ui.MainActivity"
+            android:exported="false" />
 
         <meta-data
             android:name="preloaded_fonts"
